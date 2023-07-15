@@ -142,3 +142,10 @@ footer a:active{
     outline: none;
 }
 
+
+.btn:disabled{
+    cursor: not-allowed;
+    background-color: #6fb9eb;
+    transform: none;
+    opacity: 0.5;
+}

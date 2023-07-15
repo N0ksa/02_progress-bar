@@ -7,10 +7,12 @@ let progressStage = 1;
 
 next.addEventListener("click", () =>{
     progressStage++;
-    if (progressStage <= 4){
-        progressLine.style.width = ((progressStage - 1) / 3) * 100 + "%";
+    if (progressStage <= circles.length){
+        progressLine.style.width = ((progressStage - 1) / (circles.length - 1)) * 100 + "%";
     } else{
         progressStage--;
+     
+        
     }
     
 
@@ -23,10 +25,12 @@ next.addEventListener("click", () =>{
 previous.addEventListener("click", () => {
     progressStage--;
     if (progressStage > 0){
+        next.disabled = false;
         progressLine.style.width = ((progressStage - 1) / 3) * 100 + "%";
         console.log(progressStage);
     } else{
         progressStage++;
+        
     }
 
     update();
@@ -42,6 +46,16 @@ function update(){
             circle.classList.remove("active");
         }
     })
+
+
+    if (progressStage > 1 && progressStage < 4){
+        next.disabled = false;
+        previous.disabled = false;
+    } else if (progressStage == 1){
+        previous.disabled = true;
+    } else if (progressStage == 4){
+        next.disabled = true;
+    }
 }
 
 
