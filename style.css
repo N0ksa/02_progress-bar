@@ -90,6 +90,9 @@ footer a:active{
     transform: translateY(-50%);
     background-color: #3498db;
     z-index: -1;
+
+
+    transition: width 0.5s ease;
 }
 
 .circle{
@@ -108,8 +111,13 @@ footer a:active{
 
 .circle.active{
     border: 4px solid #3498db;
+    background-color: #6fb9eb;
     transform: scale(1.2);
     color: black;
+    color: #fff;
+    font-weight: 800;
+
+    transition: border-color 0.5s ease-out;
 }
 
 .btn{
