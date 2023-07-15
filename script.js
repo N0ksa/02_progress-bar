@@ -5,8 +5,12 @@ const circles = document.querySelectorAll(".circle");
 let progressStage = 1;
 
 
+const buttonClickSound = new Audio("./media/interface-click.wav");
+
+
 next.addEventListener("click", () =>{
     progressStage++;
+    buttonClickSound.play();
     if (progressStage <= circles.length){
         progressLine.style.width = ((progressStage - 1) / (circles.length - 1)) * 100 + "%";
     } else{
@@ -24,10 +28,10 @@ next.addEventListener("click", () =>{
 
 previous.addEventListener("click", () => {
     progressStage--;
+    buttonClickSound.play();
     if (progressStage > 0){
         next.disabled = false;
         progressLine.style.width = ((progressStage - 1) / 3) * 100 + "%";
-        console.log(progressStage);
     } else{
         progressStage++;
         
